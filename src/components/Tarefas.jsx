@@ -1,9 +1,14 @@
 import React from 'react'
 
 const Tarefas = props => {
+
+  const excluir = (alvo)=>{
+    alert(alvo)
+  }
+
   return (
     <>
-      <li key={props.index} className="list-group-item">
+      <li onClick={()=> excluir(props.index)} key={props.index} className="list-group-item">
         {props.item}
         <svg
           xmlns="http://www.w3.org/2000/svg"
