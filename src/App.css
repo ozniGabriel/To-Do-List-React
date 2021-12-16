@@ -1,26 +1,25 @@
 body{
-  background-color: rgb(25, 25, 138)
+  background-color: rgb(24, 7, 78)
 }
 
 .App {
   text-align: center;
   width: 45%;
   margin: 0 auto;
+  margin-top: 5%;
 }
 
-.App li{
-  background-color: rgb(180, 235, 126);
-  border-right-color: crimson;
-
-}
-
-.App svg{
-  position: relative;
-  margin-left: 50%;
-  width: 8%;
+.App li {
+  background-color: rgb(220, 250, 191);
+  border-radius: 2%;
+  list-style: none;
+  padding: 2%;
+  margin-bottom: 2%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .App button{
   margin-top: 10%;
   margin-left: 60%;
+  background-color: rgb(25, 133, 25);
 }
