@@ -1,7 +1,9 @@
 body{
   background-color: rgb(24, 7, 78)
 }
-
+h3{
+  color: aliceblue;
+}
 .App {
   text-align: center;
   width: 45%;
@@ -10,7 +12,6 @@ body{
 }
 
 .App li {
-  background-color: rgb(220, 250, 191);
   border-radius: 2%;
   list-style: none;
   padding: 2%;
@@ -18,8 +19,13 @@ body{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.App button{
+.App button.btn-light{
+  color: black;
+  border-color: blue;
+  width: 80%;
+}
+
+.App button.btn-success, button.btn-danger{
   margin-top: 10%;
   margin-left: 60%;
-  background-color: rgb(25, 133, 25);
 }
