@@ -8,7 +8,7 @@ function buscarTarefas() {
   let objetivosAtualizados = JSON.parse(localStorage.getItem('tarefas'))
   if(objetivosAtualizados !== null){
     return objetivosAtualizados.map((item, index) => {
-      return <Tarefas item={item} index={index} key={index}/>
+      return <Tarefas item={item} index={index} key={index} />
     })
   } else {
     return (<h3>Lista Vazia</h3>)
@@ -32,8 +32,8 @@ const TodoList = () => {
 
   const resetarLista = ()=>{
     localStorage.removeItem('tarefas')
-    objetivos.splice(0, objetivos.length)
-    return setArr(buscarTarefas)
+    objetivos = ['Arrumar casa', 'Arrumar Quarto', 'Tempo com Deus', 'Se aproximar do Mercado']
+    return setArr(atualizarTarefas(objetivos))
   }
 
   return (
