@@ -2,22 +2,33 @@ import React, { useState } from 'react'
 import Tarefas from './Tarefas'
 
 let objetivos = []
+let fundo = []
+let texto = []
 
 // BUSCA NO LOCAL STORAGE AS TAREFAS JÁ SALVAS
 function buscarTarefas() {
   let objetivosAtualizados = JSON.parse(localStorage.getItem('tarefas'))
-  if(objetivosAtualizados !== null){
+
+  if(objetivosAtualizados !== null && objetivosAtualizados.length > 0){
+    let estiloFundo = JSON.parse(localStorage.getItem("estiloFundo"))
+    let estiloTexto = JSON.parse(localStorage.getItem("estiloTexto"))
+
     return objetivosAtualizados.map((item, index) => {
-      return <Tarefas item={item} index={index} key={index} />
+      return <Tarefas item={item} index={index} key={index} texto={estiloTexto[index]} fundo={estiloFundo[index]}/>
     })
+
   } else {
-    return (<h3>Lista Vazia</h3>)
+    localStorage.setItem("estiloFundo", JSON.stringify([]))
+    localStorage.setItem("estiloTexto", JSON.stringify([]))
+    return (<h3>Sem nada pra fazer?</h3>)
   }
 }
 
 // ATUALIZA A LISTA DA LOCAL STORAGE
-function atualizarTarefas(listaAtualizada) {
+function atualizarTarefas(listaAtualizada, fundo, texto) {
   localStorage.setItem('tarefas', JSON.stringify(listaAtualizada))
+  localStorage.setItem('estiloFundo', JSON.stringify(fundo))
+  localStorage.setItem('estiloTexto', JSON.stringify(texto))
 }
 
 const TodoList = () => {
@@ -26,13 +37,17 @@ const TodoList = () => {
   const addTarefa = () => {
     let novaTarefa = prompt('Digite a nova Tarefa:')
     objetivos.push(novaTarefa)
-    atualizarTarefas(objetivos)
+    fundo.push("aliceblue")
+    texto.push("none")
+    atualizarTarefas(objetivos, fundo, texto)
     return setArr(buscarTarefas)
   }
 
   const resetarLista = ()=>{
     localStorage.removeItem('tarefas')
-    objetivos = ['Arrumar casa', 'Arrumar Quarto', 'Tempo com Deus', 'Se aproximar do Mercado']
+    localStorage.removeItem('estiloTexto')
+    localStorage.removeItem('estiloFundo')
+    objetivos = []
     return setArr(atualizarTarefas(objetivos))
   }
 
